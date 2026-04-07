@@ -100,11 +100,11 @@ export default function Preloader() {
           <img src={logo} alt="Brand Emblem" className="w-full h-full object-contain" />
         </div>
 
-        <h1 className="font-serif text-5xl md:text-8xl font-bold text-white mb-4 tracking-wider flex flex-wrap justify-center gap-x-6 min-h-[1.2em]">
+        <h1 className="font-serif text-3xl md:text-8xl font-bold text-white mb-4 tracking-wider flex flex-wrap justify-center gap-x-4 md:gap-x-6 min-h-[1.2em]">
           <span>{text1}</span>
           <span className="text-yellow-400">{text2}</span>
         </h1>
-        <p className="font-serif text-2xl md:text-4xl text-white/95 italic font-medium min-h-[1.5em] mb-10">
+        <p className="font-serif text-lg md:text-4xl text-white/95 italic font-medium min-h-[1.5em] mb-10">
           {text3}
         </p>
         

@@ -46,7 +46,7 @@ export default function Categories() {
           <h2 className="font-serif text-4xl md:text-5xl lg:text-5xl font-bold text-[#68101e] mb-5">
             Shop by Category
           </h2>
-          <p className="font-sans text-[25px] sm:text-base text-[#68101e]/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-sans text-base sm:text-lg text-[#68101e]/80 max-w-2xl mx-auto leading-relaxed">
             Explore our carefully curated collections of traditional Indian wear, each piece reflecting the rich heritage of Rajwadi craftsmanship.
           </p>
         </div>

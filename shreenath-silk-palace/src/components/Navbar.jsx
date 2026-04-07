@@ -53,8 +53,8 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#fdfaf6] border-b border-gray-100 shadow-sm transition-all duration-300 font-sans">
-      <nav className="w-full max-w-[1700px] mx-auto px-4 md:px-8">
-        <div className="flex items-center h-24 md:h-28 relative">
+      <nav className="w-full max-w-[1800px] mx-auto px-4 md:px-10">
+        <div className="flex items-center h-20 md:h-28 relative">
 
           {/* Logo Section - Left Side */}
           <div className="flex-1 flex justify-start items-center">
@@ -178,35 +178,65 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         <div
-          className={`xl:hidden overflow-hidden transition-all duration-400 ${menuOpen ? 'max-h-[800px] pb-6' : 'max-h-0'
+          className={`xl:hidden overflow-hidden transition-all duration-500 ease-in-out ${menuOpen ? 'max-h-[90vh] opacity-100 py-6' : 'max-h-0 opacity-0'
             }`}
         >
-          <div className="bg-white border border-gray-100 rounded-2xl shadow-2xl mt-2 p-2">
-            <ul className="flex flex-col">
-              <li>
-                <button onClick={() => handleNavClick('#home')} className="w-full text-left px-5 py-4 font-sans text-sm font-bold text-gray-800 hover:text-[#68101e] hover:bg-gray-50 rounded-xl">Home</button>
+          <div className="bg-white/95 backdrop-blur-xl border border-[#68101e]/10 rounded-3xl shadow-[0_20px_50px_rgba(104,16,30,0.15)] overflow-hidden">
+            <ul className="flex flex-col p-2">
+              <li className="mb-1">
+                <button 
+                  onClick={() => handleNavClick('#home')} 
+                  className={`w-full text-left px-6 py-4 font-sans text-[16px] tracking-wide transition-all rounded-2xl ${
+                    location.pathname === '/' ? 'bg-[#68101e]/10 text-[#68101e] font-bold' : 'text-gray-800 font-semibold hover:bg-[#68101e]/5'
+                  }`}
+                >
+                  Home
+                </button>
               </li>
-              <li className="bg-red-50/10 mb-2">
-                <div className="px-5 pt-4 pb-2 font-sans text-xs uppercase tracking-widest font-bold text-[#68101e]/50">Sarees Collection</div>
-                <div className="flex flex-col gap-1">
+              
+              <li className="mb-2">
+                <div className="px-6 pt-5 pb-2 font-sans text-[11px] uppercase tracking-[0.3em] font-extrabold text-[#68101e]/40">Sarees Collection</div>
+                <div className="grid grid-cols-1 gap-1 px-2">
                   {SAREE_LINKS.map(link => (
-                    <button key={link.label} onClick={() => handleNavClick(link.href, true)} className="w-full text-left px-8 py-3 font-sans text-sm font-medium text-gray-700 hover:text-[#68101e] hover:bg-gray-50 rounded-xl">{link.label}</button>
+                    <button 
+                      key={link.label} 
+                      onClick={() => handleNavClick(link.href, true)} 
+                      className="w-full text-left px-4 py-3 font-sans text-[15px] font-medium text-gray-700 hover:text-[#68101e] hover:bg-[#68101e]/5 rounded-xl transition-colors"
+                    >
+                      {link.label}
+                    </button>
                   ))}
                 </div>
               </li>
-              {['Chaniya Choli', 'Kids Wear', 'Rajputi Poshak', 'About Us', 'Contact'].map((item) => (
-                <li key={item}>
-                  <button
-                    onClick={() => {
-                      const href = item === 'About Us' ? '/about' : item === 'Contact' ? '/contact' : `/${item.toLowerCase().replace(' ', '-')}`
-                      handleNavClick(href, true)
-                    }}
-                    className="w-full text-left px-5 py-4 font-sans text-sm font-bold text-gray-800 hover:text-[#68101e] hover:bg-gray-50 rounded-xl"
-                  >
-                    {item}
-                  </button>
-                </li>
-              ))}
+
+              <div className="h-px bg-gradient-to-r from-transparent via-[#68101e]/10 to-transparent my-2" />
+
+              {['Chaniya Choli', 'Kids Wear', 'Rajputi Poshak', 'About Us', 'Contact'].map((item) => {
+                const href = item === 'About Us' ? '/about' : item === 'Contact' ? '/contact' : `/${item.toLowerCase().replace(' ', '-')}`
+                const isActive = location.pathname === href
+                return (
+                  <li key={item} className="mb-1">
+                    <button
+                      onClick={() => handleNavClick(href, true)}
+                      className={`w-full text-left px-6 py-4 font-sans text-[16px] tracking-wide transition-all rounded-2xl ${
+                        isActive ? 'bg-[#68101e]/10 text-[#68101e] font-bold' : 'text-gray-800 font-semibold hover:bg-[#68101e]/5'
+                      }`}
+                    >
+                      {item}
+                    </button>
+                  </li>
+                )
+              })}
+
+              <li className="mt-4 px-4 pb-4">
+                <a
+                  href="tel:+917600465647"
+                  className="flex items-center justify-center gap-3 bg-[#68101e] text-white py-4 rounded-2xl font-sans font-bold text-base shadow-lg shadow-[#68101e]/20"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  Call Now
+                </a>
+              </li>
             </ul>
           </div>
         </div>

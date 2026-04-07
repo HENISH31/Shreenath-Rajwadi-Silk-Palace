@@ -38,7 +38,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="relative w-full h-[calc(100vh-80px)] md:h-[calc(100vh-96px)] mt-20 md:mt-24 min-h-[550px] overflow-hidden flex items-center justify-center">
+    <section id="home" className="relative w-full h-[calc(100vh-80px)] md:h-[calc(100vh-112px)] mt-20 md:mt-28 min-h-[600px] md:min-h-[700px] overflow-hidden flex items-center justify-center">
 
       {/* ── Slide images ── */}
       <div className="absolute inset-0">
@@ -67,26 +67,26 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-8 text-center pt-8">
 
         {/* Top Badge */}
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[13px] md:text-sm font-sans font-medium px-6 py-2 rounded-full mb-8 shadow-sm animate-fadeInUp" style={{ animationDelay: '1.2s' }}>
-          <span className="text-yellow-400 text-base">⭐</span>
-          <span>Premium Traditional Wear Since 1985</span>
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[12px] sm:text-[13px] md:text-sm font-sans font-medium px-5 sm:px-6 py-2 rounded-full mb-6 sm:mb-8 shadow-sm animate-fadeInUp" style={{ animationDelay: '1.2s' }}>
+          <span className="text-yellow-400 text-sm sm:text-base">⭐</span>
+          <span>Traditional Excellence Since 1985</span>
         </div>
 
         {/* Main Heading */}
         <h1
-          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-6 drop-shadow-lg animate-fadeInUp"
+          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] mb-6 drop-shadow-xl animate-fadeInUp px-2"
           style={{ animationDelay: '1.4s' }}
         >
-          Exquisite Rajwadi<br />
+          Exquisite Rajwadi<br className="hidden sm:block" />
           <span className="text-yellow-400 block mt-2 drop-shadow-md italic">Silk Heritage</span>
         </h1>
 
         {/* Subtitle */}
         <p
-          className="font-sans text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mb-8 leading-relaxed drop-shadow-md animate-fadeInUp"
+          className="font-sans text-sm sm:text-lg md:text-xl text-gray-100 max-w-2xl mb-8 sm:mb-10 leading-relaxed drop-shadow-md animate-fadeInUp px-4"
           style={{ animationDelay: '1.6s' }}
         >
-          Discover our curated collection of designer sarees, chaniya choli, and traditional Rajputi poshak. Where timeless elegance meets contemporary style.
+          Discover curated designer sarees, chaniya cholis, and Rajputi poshaks. Timeless elegance meets contemporary Rajwadi grace.
         </p>
 
         {/* CTA Buttons */}

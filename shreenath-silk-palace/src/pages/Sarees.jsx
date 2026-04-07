@@ -152,14 +152,14 @@ export default function Sarees() {
         {/* Detailed Collection View */}
         {isDetailView && (
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 reveal">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8 lg:gap-12 reveal">
               {activeData.items.map((item, i) => (
                 <div key={item.id} className="group bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] flex flex-col transition-all duration-500">
                   <div className="relative w-full aspect-[2/3] overflow-hidden bg-gray-50 border-b border-gray-100">
                     <img src={item.image} alt={item.name} className="w-full h-full object-cover object-top transition-transform duration-100 group-hover:scale-110" />
                   </div>
-                  <div className="p-8 flex flex-col flex-1 text-center">
-                    <h3 className="font-serif text-[20px] font-bold text-[#3a111a] mb-5">
+                  <div className="p-4 sm:p-8 flex flex-col flex-1 text-center">
+                    <h3 className="font-serif text-[16px] sm:text-[20px] font-bold text-[#3a111a] mb-3 sm:mb-5">
                       {item.name}
                     </h3>
                     <button onClick={() => navigate('/contact')} className="w-full bg-[#68101e] text-white py-3 rounded-lg font-sans font-semibold text-[14px] hover:bg-royal-gradient-hover transition-all">
