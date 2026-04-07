@@ -1,0 +1,280 @@
+/* Shreenath Rajwadi Silk Palace - Global Design System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global Foundation ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Outfit', sans-serif;
+  background-color: #fdfaf6; /* Soft Cream */
+  color: #1a1a1a;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.01em;
+}
+
+/* ── Custom Scrollbar Luxury ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #1a0a0a; }
+::-webkit-scrollbar-thumb { 
+  background: linear-gradient(180deg, #ac1830 0%, #68101e 100%); 
+  border-radius: 10px; 
+}
+::-webkit-scrollbar-thumb:hover { background: #efbf44; }
+
+/* ── Luxury Design Tokens ── */
+@layer utilities {
+  /* Brand Gradients */
+  .bg-royal-gradient {
+    background: linear-gradient(135deg, #68101e 0%, #8a192c 100%);
+  }
+  .bg-royal-gradient-hover {
+    background: linear-gradient(135deg, #5b0a18 0%, #761022 100%);
+  }
+  
+  /* Text Accents */
+  .text-shadow-royal {
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+
+  .text-gold-shimmer {
+    background: linear-gradient(90deg, #c9960e 0%, #f0cf3c 40%, #c9960e 60%, #e8b91a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Structural Patterns */
+  .bg-royal-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(200,150,14,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(172,24,48,0.06) 0%, transparent 50%),
+      linear-gradient(135deg, #1a0a0a 0%, #2b0d0d 100%);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Decorative Accents */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,150,14,0.3), #efbf44, rgba(201,150,14,0.3), transparent);
+  }
+
+  .border-gold-decor::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #c9960e, #efbf44, #c9960e);
+    margin: 16px auto 0;
+    border-radius: 4px;
+  }
+
+  /* Animations & Transitions */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .zoom-card {
+    overflow: hidden;
+  }
+  
+  .zoom-card img {
+    transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1);
+  }
+  
+  .zoom-card:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* ── Keyframes ── */
+@keyframes shimmer {
+  to { background-position: -200% center; }
+}
+
+@keyframes wa-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+  70%  { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+.wa-pulse {
+  animation: wa-ring 3s ease-out infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 3s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Preloader Content ── */
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0a0505; /* Deep base to avoid white flashes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s;
+}
+
+.preloader-overlay.hidden-preloader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  text-align: center;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4);
+}
+
+.preloader-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.preloader-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #efbf44;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.preloader-dot:nth-child(1) { animation-delay: -0.32s; }
+.preloader-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
+
+@keyframes preloader-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Custom Hover Underline Animation ── */
+.hover-underline-animation {
+  position: relative;
+  color: inherit;
+  padding-bottom: 2px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #68101e; /* Maroon */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+/* ── Uiverse.io Inspired CTA Button ── */
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 2px;
+  font-size: 14px;
+  padding-right: 12px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+}
+
+.cta svg {
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+  color: #efbf44; /* Gold arrow */
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.cta-underline {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.cta-underline:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #efbf44; /* Gold underline for category cards */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .cta-underline:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
