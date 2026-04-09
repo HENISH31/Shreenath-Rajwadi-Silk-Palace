@@ -68,11 +68,12 @@ export default function Preloader() {
       handleLoad()
     } else {
       window.addEventListener('load', handleLoad)
-      return () => {
-        window.removeEventListener('load', handleLoad)
-        clearInterval(typingInterval)
-        clearInterval(bgInterval)
-      }
+    }
+
+    return () => {
+      window.removeEventListener('load', handleLoad)
+      clearInterval(typingInterval)
+      clearInterval(bgInterval)
     }
   }, [])
 

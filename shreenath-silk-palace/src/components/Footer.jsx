@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer className="bg-[#600e1b] text-white pt-12 md:pt-16 pb-8">
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Top Segment: 3-Column Luxury Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-12 lg:gap-x-20 mb-12">

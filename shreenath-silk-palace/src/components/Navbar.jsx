@@ -59,7 +59,7 @@ export default function Navbar() {
           {/* Logo Section - Left Side */}
           <div className="flex-1 flex justify-start items-center">
             <button
-              onClick={() => window.location.href = '/'}
+              onClick={() => handleNavClick('#home')}
               className="flex items-center gap-3 sm:gap-4 group"
             >
               <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex-shrink-0">
